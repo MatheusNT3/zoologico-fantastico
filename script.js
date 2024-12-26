@@ -1,25 +1,24 @@
-// Retorne no console todas as imagens do site
+// Adicione a classe ativo a todos os itens do menu
+const menu = document.querySelectorAll('.menu a');
+menu.forEach((item) => {
+  item.classList.add('ativo');
+});
 
-const imagens = document.querySelectorAll('img')
-console.log(imagens);
+// Remove a classe ativo de todos os itens do menu e mantenha apenas no primeiro
+menu.forEach((item) => {
+  item.classList.remove('ativo');
+});
+menu[0].classList.add('ativo');
 
-// Retorne no console apenas as imagens que começaram com a palavra imagem
+// Verifique se as imagens possuem o atributo alt
+const imagem = document.querySelectorAll('img');
+imagem.forEach((item) => {
+  const possuiAlt = item.hasAttribute('alt');
+  console.log(item, possuiAlt);
+});
 
-const apenasImagens = document.querySelectorAll('img[src^="img/imagem"]');
-console.log(apenasImagens);
-
-// Selecione todos os links internos (onde o href começa com #)
-
-const linksInternos = document.querySelectorAll('a[href^="#"]');
-console.log(linksInternos);
-
-// Selecione o primeiro h2 dentro de .animais-descricao
-
-const tituloSecundario = document.querySelectorAll('.animais-descricao h2');
-console.log(tituloSecundario[0]);
-
-// Selecione o último p do site
-
-const ultimoP = document.querySelectorAll('p');
-console.log(ultimoP[ultimoP.length - 1]);
+// Modifique o href do link externo no menu
+const linkExterno = document.querySelector('.menu a[href^="http"]');
+linkExterno.setAttribute('href', 'https://www.novo-link.com');
+console.log(linkExterno);
 

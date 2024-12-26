@@ -1,41 +1,42 @@
-const animaisSection = document.getElementById('animais');
-console.log(animaisSection)
+// Classlist
 
-// Seleciona pela classe, retorna uma HTMLCollection
-const gridSection = document.getElementsByClassName('grid-section');
-const contato = document.getElementsByClassName('grid-section contato');
+const menu = document.querySelector('.menu');
 
-// Seleciona todas as UL's, retorna uma HTMLCollection
-const ul = document.getElementsByTagName('ul');
+menu.classList.add('ativo');
+// menu.classList.toogle('azul');
 
-// Retorna o primeiro elemento
-console.log(gridSection[0]);
-
-// Retorna a primeira li que encontrar
-const primeiraLi = document.querySelector('li');
-console.log(primeiraLi);
-
-// Retorna a primeira UL que encontrar
-const primeiraUl = document.querySelector('ul');
-console.log(primeiraUl);
-
-// Retorna o link da img
-const linkInterno = document.querySelector('[href^="#"]');
-console.log(linkInterno);
-
-// Retorna o segundo elemento
-const imagemAnimais = document.querySelectorAll('.animais img');
-console.log(imagemAnimais [1]);
+if (menu.classList.contains('azul')) {
+  menu.classList.add('possui-azul');
+} else {
+  menu.classList.add('nao-possui-azul');
+}
 
 
-const gridSectionHTML = document.getElementsByClassName('grid-section');
-const gridSectionNode = document.querySelectorAll('.grid-section');
+// Atributes
 
-console.log(gridSectionHTML);
-console.log(gridSectionNode);
+// Retorna uma array-like com os atributos do elemento.
 
-gridSectionNode.forEach(function(item, index){
-  console.log(item)
-})
+const animais = document.querySelector('.animais');
 
-const arrayGrid = Array.from(gridSectionHTML)
+animais.attributes; //  retorna todos os atributos
+
+animais.attributes[0]; // retorna o primeiro atributo
+
+console.log(animais.attributes['data-texto']); // retorna o valor do atributo
+
+// getAttribute e setAttribute
+
+// Métodos que retornam ou definem de acordo com o atributo selecionado
+
+const img = document.querySelector('img');
+console.log(img);
+const srcImg = img.getAttribute('alt'); // retorna o valor do alt
+img.setAttribute('alt', 'é um tigre'); // muda o valor do alt
+console.log(srcImg);
+
+const possuiAlt = img.hasAttribute('alt'); // retorna true ou false
+console.log(possuiAlt);
+
+img.removeAttribute('alt'); // remove o atributo
+console.log(img);
+
